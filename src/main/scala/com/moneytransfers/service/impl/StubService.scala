@@ -1,9 +1,9 @@
-package com.example.service.impl
+package com.moneytransfers.service.impl
 
 import scala.concurrent.{ExecutionContext, Future}
-import com.example.model.exceptions.AccountNotFound
-import com.example.model.{AccountId, AccountInfo, TransferRequest}
-import com.example.service.{AccountService, TransferService}
+import com.moneytransfers.model.exceptions.AccountNotFound
+import com.moneytransfers.model.{AccountId, AccountInfo, TransferRequest}
+import com.moneytransfers.service.{AccountService, TransferService}
 
 class StubService(implicit ec: ExecutionContext) extends AccountService with TransferService {
   private val accounts: Map[AccountId, AccountInfo] = Seq(

@@ -1,7 +1,7 @@
-package com.example.service
+package com.moneytransfers.service
 
 import scala.concurrent.Future
-import com.example.model.TransferRequest
+import com.moneytransfers.model.TransferRequest
 
 trait TransferService {
   def transfer(request: TransferRequest): Future[Unit]

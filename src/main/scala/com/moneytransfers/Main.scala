@@ -1,10 +1,10 @@
-package com.example
+package com.moneytransfers
 
 import akka.actor.ActorSystem
 import akka.http.scaladsl.Http
 import akka.stream.ActorMaterializer
-import com.example.http.Endpoint
-import com.example.service.impl.StubService
+import com.moneytransfers.http.Endpoint
+import com.moneytransfers.service.impl.StubService
 
 object Main extends App {
   implicit val system = ActorSystem("revolut-sample")

@@ -1,7 +1,7 @@
-package com.example.service
+package com.moneytransfers.service
 
 import scala.concurrent.Future
-import com.example.model._
+import com.moneytransfers.model._
 
 trait AccountService {
   def queryAccount(id: AccountId): Future[AccountInfo]

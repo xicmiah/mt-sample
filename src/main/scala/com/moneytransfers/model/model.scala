@@ -1,4 +1,4 @@
-package com.example.model
+package com.moneytransfers.model
 
 case class AccountInfo(id: AccountId, transfers: Seq[Transfer])
 

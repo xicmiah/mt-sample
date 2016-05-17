@@ -1,10 +1,10 @@
-package com.example.http
+package com.moneytransfers.http
 
 import scala.concurrent.ExecutionContext
 import akka.http.scaladsl.server.Directive1
 import akka.http.scaladsl.server.Directives._
-import com.example.model._
-import com.example.service.{AccountService, TransferService}
+import com.moneytransfers.model._
+import com.moneytransfers.service.{AccountService, TransferService}
 import de.heikoseeberger.akkahttpupickle.UpickleSupport
 import upickle.default._
 
