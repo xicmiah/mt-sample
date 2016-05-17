@@ -1,17 +1,9 @@
 package com.example.model
 
-import java.util.UUID
+case class AccountInfo(id: AccountId, transfers: Seq[Transfer])
 
-case class User(id: UUID)
+case class Transfer(from: Account, to: Account, amount: Money)
 
-case class AccountInfo(id: UUID, transactions: Seq[Transaction])
+case class Account(id: AccountId)
 
-sealed trait Transaction {
-  def balance: Money
-}
-
-sealed trait Source
-case class Account(id: UUID) extends Source
-case object Initial extends Source
-
-case class Money(amount: BigDecimal, currency: String)
+case class Money(amount: Double, currency: String)
