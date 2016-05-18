@@ -8,14 +8,17 @@ javacOptions ++= Seq("-source", "1.8", "-target", "1.8")
 
 scalacOptions ++= Seq("-target:jvm-1.8")
 
+val akkaVersion = "2.4.4"
+
 libraryDependencies ++= Seq(
-  "com.typesafe.akka" %% "akka-http-core" % "2.4.4",
-  "com.typesafe.akka" %% "akka-http-experimental" % "2.4.4",
+  "com.typesafe.akka" %% "akka-http-core" % akkaVersion,
+  "com.typesafe.akka" %% "akka-http-experimental" % akkaVersion,
+  "com.typesafe.akka" %% "akka-agent" % akkaVersion,
   "de.heikoseeberger" %% "akka-http-upickle" % "1.5.3",
   "com.lihaoyi" %% "upickle" % "0.4.0"
 )
 
 libraryDependencies ++= Seq(
   "org.scalatest" %% "scalatest" % "2.2.6" % "test",
-  "com.typesafe.akka" %% "akka-http-testkit" % "2.4.4" % "test"
+  "com.typesafe.akka" %% "akka-http-testkit" % akkaVersion % "test"
 )

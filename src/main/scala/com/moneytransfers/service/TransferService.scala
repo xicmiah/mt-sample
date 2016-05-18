@@ -5,10 +5,9 @@ import com.moneytransfers.model._
 import com.moneytransfers.service.TransferService.{TransferRequest, TransferResponse}
 
 object TransferService {
-  case class TransferRequest(
-    from: AccountId,
-    to: AccountId,
-    sum: Money)
+  case class TransferRequest(from: AccountId, to: AccountId, sum: Money) {
+    require(sum.amount > 0, "Transfer amount must be positive")
+  }
 
   case class TransferResponse(transactionId: TransactionId)
 }

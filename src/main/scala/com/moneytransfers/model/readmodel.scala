@@ -7,4 +7,7 @@ object AccountInfo {
 }
 case class AccountInfo(id: AccountId, currency: String, balance: Amount, operations: Seq[Operation])
 
+object Operation {
+  implicit val pkl = upickle.default.macroRW[Operation]
+}
 case class Operation(transactionId: TransactionId, counterparty: AccountId, amount: Amount, timestamp: Instant)
