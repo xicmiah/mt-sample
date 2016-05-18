@@ -1,7 +1,8 @@
 package com.moneytransfers.service.impl
 
 import scala.concurrent.{ExecutionContext, Future}
-import com.moneytransfers.model.{AccountId, AccountInfo, Currency, TransferRequest}
+import com.moneytransfers.model.{AccountId, AccountInfo, Currency}
+import com.moneytransfers.service.TransferService.TransferRequest
 import com.moneytransfers.service.{AccountService, TransferService}
 
 class StubService(implicit ec: ExecutionContext) extends AccountService with TransferService {

@@ -1,5 +1,7 @@
 package com.moneytransfers.model
 
+import com.moneytransfers.service.TransferService.TransferRequest
+
 object UserTransferRequest {
   implicit val pkl = upickle.default.macroRW[UserTransferRequest]
 }
