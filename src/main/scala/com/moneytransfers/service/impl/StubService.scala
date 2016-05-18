@@ -19,8 +19,8 @@ object StubService {
 
   case class Transaction(id: TransactionId = UUID.randomUUID(), from: AccountId, to: AccountId, amount: Amount, timestamp: Instant = Instant.now()) {
     def accountOperations: Seq[(AccountId, Operation)] = Seq(
-      from -> Operation(id, to, amount, timestamp),
-      to -> Operation(id, from, -amount, timestamp))
+      from -> Operation(id, to, -amount, timestamp),
+      to -> Operation(id, from, amount, timestamp))
   }
 
   private type State = Map[AccountId, Account]
@@ -33,7 +33,7 @@ object StubService {
 
     require(toAccount.currency == fromAccount.currency, "Accounts must have matching currencies")
     require(fromAccount.currency == currency, "Transfer currency must match account currency")
-    require(fromAccount.balance >= amount, "Not enough funds")
+    require(fromAccount.balance >= amount, s"Not enough funds")
 
     Transaction(transactionId, from, to, amount)
   }
