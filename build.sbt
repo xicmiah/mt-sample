@@ -20,5 +20,6 @@ libraryDependencies ++= Seq(
 
 libraryDependencies ++= Seq(
   "org.scalatest" %% "scalatest" % "2.2.6" % "test",
+  "org.scalamock" %% "scalamock-scalatest-support" % "3.2.2" % "test",
   "com.typesafe.akka" %% "akka-http-testkit" % akkaVersion % "test"
 )
