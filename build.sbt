@@ -14,9 +14,10 @@ libraryDependencies ++= Seq(
   "com.typesafe.akka" %% "akka-http-core" % akkaVersion,
   "com.typesafe.akka" %% "akka-http-experimental" % akkaVersion,
   "com.typesafe.akka" %% "akka-agent" % akkaVersion,
-  "de.heikoseeberger" %% "akka-http-upickle" % "1.5.3",
-  "com.lihaoyi" %% "upickle" % "0.4.0"
+  "de.heikoseeberger" %% "akka-http-upickle" % "1.5.3"
 )
+
+dependencyOverrides += "com.lihaoyi" %% "upickle" % "0.4.0"
 
 libraryDependencies ++= Seq(
   "org.scalatest" %% "scalatest" % "2.2.6" % "test",
