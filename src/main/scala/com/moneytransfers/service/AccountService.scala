@@ -5,6 +5,4 @@ import com.moneytransfers.model._
 
 trait AccountService {
   def queryAccount(id: AccountId): Future[Option[AccountInfo]]
-
-  def createAccount(currency: Currency): Future[AccountInfo]
 }

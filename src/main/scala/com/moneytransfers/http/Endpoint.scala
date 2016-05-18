@@ -25,9 +25,6 @@ class Endpoint(accountService: AccountService, transferService: TransferService)
           }
         }
       }
-    } ~
-    (path("accounts") & post) {
-      handleWith(accountService.createAccount)
     }
   }
 }
