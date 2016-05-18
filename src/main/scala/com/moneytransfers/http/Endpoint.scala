@@ -18,8 +18,10 @@ class Endpoint(accountService: AccountService, transferService: TransferService)
       } ~
       path("transfers") {
         post {
-          entity(as[UserTransferRequest]) { transferRequest =>
-            complete(s"Started transfer from $accountId, request: $transferRequest")
+          entity(as[UserTransferRequest]) { userPartial =>
+            complete {
+              transferService.transfer(userPartial.mkTransferRequest(accountId))
+            }
           }
         }
       }

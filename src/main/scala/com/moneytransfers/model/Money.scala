@@ -1,3 +1,3 @@
 package com.moneytransfers.model
 
-case class Money(amount: Double, currency: String)
+case class Money(amount: Amount, currency: String)
