@@ -1,6 +1,7 @@
 package com.moneytransfers.http
 
 import java.util.UUID
+import scala.concurrent.Future
 import akka.http.scaladsl.model.StatusCodes
 import akka.http.scaladsl.server.Route
 import akka.http.scaladsl.testkit.ScalatestRouteTest
@@ -90,6 +91,16 @@ class EndpointTest extends WordSpec with OneInstancePerTest with ScalatestRouteT
     "return 400 on malformed requests" in {
       Post("/accounts/A/transfers", Js.Obj()) ~> sealedRoute ~> check {
         assert(status === StatusCodes.BadRequest)
+      }
+    }
+
+    "return 400 on validation errors" in {
+      val message = "Insufficient funds"
+      (mockTransfers.transfer _).expects(*).returning(Future.failed(new IllegalArgumentException(message)))
+
+      Post("/accounts/A/transfers", goodPayload) ~> sealedRoute ~> check {
+        assert(status === StatusCodes.BadRequest)
+        assert(responseAs[String].contains(message))
       }
     }
   }
